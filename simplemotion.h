@@ -96,13 +96,14 @@ LIB SM_STATUS smCloseBus( const smbus bushandle );
 
 /** Return SM lib version number in hexadecimal format.
 Ie V 2.5.1 would be 0x020501 and 1.2.33 0x010233 */
-LIB smuint32 smGetVersion();
+LIB smuint32 smGetVersion(void);
 
 
 /** Set stream where debug output is written. By default nothing is written. */
 LIB void smSetDebugOutput( smVerbosityLevel level, FILE *stream );
 
 /** This function returns all occurred SM_STATUS bits after smOpenBus or resetCumulativeStatus call*/
+LIB SM_STATUS recordStatus( const smbus handle, const SM_STATUS stat );
 LIB SM_STATUS getCumulativeStatus( const smbus handle );
 /** Reset cululative status so getCumultiveStatus returns 0 after calling this until one of the other functions are called*/
 LIB void resetCumulativeStatus( const smbus handle );

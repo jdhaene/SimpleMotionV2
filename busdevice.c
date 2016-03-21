@@ -32,7 +32,7 @@ smbool bdInitialized=smfalse;
 SMBusDevice BusDevice[SM_MAX_BUSES];
 
 //init device struct table
-void smBDinit()
+void smBDinit(void)
 {
 	int i;
 	for(i=0;i<SM_MAX_BUSES;i++)

@@ -7,7 +7,7 @@
 #include "simplemotion.h"
 #include "simplemotion_private.h"
 
-typedef smint8 smbusdevicehandle;
+typedef smuint8 smbusdevicehandle;
 
 #define SM_BAUDRATE 460800
 

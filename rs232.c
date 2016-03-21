@@ -102,7 +102,7 @@ int OpenComport(const char * comport_name, int baudrate)
         handle = open(comport_name, O_RDWR | O_NOCTTY );
         if(handle==-1)
 	{
-		perror("unable to open comport ");
+		perror("Unable to open comport ");
                 return(handle);
 	}
 

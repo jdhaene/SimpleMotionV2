@@ -165,14 +165,14 @@ SM_STATUS smSetTimeout( smuint16 millsecs )
     return SM_ERR_PARAMETER;
 }
 
-unsigned long smGetVersion()
+unsigned long smGetVersion(void)
 {
     return SM_VERSION;
 }
 
 
 //init bus struct table
-void smBusesInit()
+void smBusesInit(void)
 {
     int i;
     for(i=0;i<SM_MAX_BUSES;i++)
@@ -295,7 +295,6 @@ smbool smTransmitBuffer( const smbus handle )
 SM_STATUS smSendSMCMD( smbus handle, smuint8 cmdid, smuint8 addr, smuint8 datalen, smuint8 *cmddata )
 {
     int i;
-    smuint8 data;
     smuint16 sendcrc;
 
     //check if bus handle is valid & opened
@@ -418,7 +417,6 @@ SM_STATUS smReceiveErrorHandler( smbus handle, smbool flushrx )
 
 SM_STATUS smAppendSMCommandToQueue( smbus handle, int smpCmdType,smint32 paramvalue  )
 {
-    smuint8 txbyte;
     int cmdlength;
 
     //check if bus handle is valid & opened
@@ -940,7 +938,7 @@ SM_STATUS getCumulativeStatus( const smbus handle )
 /** Reset cululative status so getCumultiveStatus returns 0 after calling this until one of the other functions are called*/
 void resetCumulativeStatus( const smbus handle )
 {
-    if(smIsHandleOpen(handle)==smfalse) return SM_ERR_NODEVICE;
+    if(smIsHandleOpen(handle)==smfalse) return;
 
     smBus[handle].cumulativeSmStatus=0;
 }
